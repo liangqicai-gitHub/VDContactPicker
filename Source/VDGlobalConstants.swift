@@ -6,5 +6,5 @@
 import UIKit
 
 public class VDGlobalConstants {
-    static var shared: VDConstantsProtocol = VDDefaultConstants()
+    public static var shared: VDConstantsProtocol = VDDefaultConstants()
 }
