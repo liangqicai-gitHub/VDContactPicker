@@ -5,7 +5,7 @@
 
 import UIKit
 
-protocol VDConstantsProtocol {
+public protocol VDConstantsProtocol {
     // MARK: string constants
     var birthdayDateFormat: String { get }
     var contactsTitle: String { get }
