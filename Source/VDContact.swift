@@ -15,7 +15,7 @@ open class VDContact {
     open let birthday: Date?
     open let birthdayString: String?
     open let contactId: String?
-    open let phoneNumbers: [(phoneNumber: String, phoneLabel: String)]
+    open var phoneNumbers: [(phoneNumber: String, phoneLabel: String)]
     open let emails: [(email: String, emailLabel: String )]
 
     public init (contact: CNContact) {

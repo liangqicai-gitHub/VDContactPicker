@@ -7,7 +7,7 @@ import UIKit
 
 open class VDDefaultConstants: VDConstantsProtocol {
     var birthdayDateFormat = "MMM d"
-    var contactsTitle = "Contacts"
+    var contactsTitle = "通讯录"
     var phoneNumberNotAvailable = "No phone numbers available"
     var emailNotAvailable = "No emails available"
     var bundleIdentifier = "VDContactPicker"
@@ -22,13 +22,13 @@ open class VDDefaultConstants: VDConstantsProtocol {
     private static let pomegranate = UIColor(red: (192/255), green: (57/255), blue: (43/255), alpha: 1.0)
 
     var colors = [
-        emerald,
-        sunflower,
-        pumpkin,
+//        emerald,
+//        sunflower,
+//        pumpkin,
         asbestos,
-        amethyst,
-        peterRiver,
-        pomegranate
+//        amethyst,
+//        peterRiver,
+//        pomegranate
     ]
 
     var alphabets = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","#"] //# indicates the names with numbers and blank spaces

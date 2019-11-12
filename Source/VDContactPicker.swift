@@ -74,7 +74,7 @@ open class VDContactPicker: UIViewController, UITableViewDelegate, UITableViewDa
 
     public lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar(frame: CGRect.zero)
-        searchBar.placeholder = "Search"
+        searchBar.placeholder = "搜索"
         searchBar.delegate = self
         return searchBar
     }()
@@ -364,7 +364,33 @@ open class VDContactPicker: UIViewController, UITableViewDelegate, UITableViewDa
         else {
             //Single selection code
             if searchBar.isFirstResponder { searchBar.resignFirstResponder() }
-            self.contactDelegate?.contactPicker(self, didSelectContact: selectedContact)
+            
+            if selectedContact.phoneNumbers.count > 1 {
+                
+                let alter = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+                for one in selectedContact.phoneNumbers {
+                    let oneAction = UIAlertAction(title: one.phoneNumber, style: .default) {[weak self] (_) in
+                        guard let sself = self else {return}
+                        alter.dismiss(animated: true, completion: nil)
+                        selectedContact.phoneNumbers = [one]
+                        sself.contactDelegate?.contactPicker(sself, didSelectContact: selectedContact)
+                    }
+                    alter.addAction(oneAction)
+                }
+                                
+                let action = UIAlertAction(title: "取消", style: .cancel) { (_) in
+                    alter.dismiss(animated: true, completion: nil)
+                }
+                alter.addAction(action)
+                
+                present(alter, animated: true, completion: nil)
+                
+            } else {
+                self.contactDelegate?.contactPicker(self, didSelectContact: selectedContact)
+            }
+            
+//            self.contactDelegate?.contactPicker(self, didSelectContact: selectedContact)
         }
     }
 

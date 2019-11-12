@@ -31,7 +31,7 @@ extension ViewController {
 extension ViewController {
 
     @IBAction fileprivate func showSingleContactPicker(_ sender: AnyObject) {
-        let contactPickerScene = VDContactPicker(delegate: self, multiSelection: false, subtitleCellType: SubtitleCellValue.email)
+        let contactPickerScene = VDContactPicker(delegate: self, multiSelection: false, subtitleCellType: SubtitleCellValue.phoneNumber)
         let navigationController = UINavigationController(rootViewController: contactPickerScene)
         self.present(navigationController, animated: true, completion: nil)
     }

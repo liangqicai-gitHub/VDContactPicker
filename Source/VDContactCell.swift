@@ -57,23 +57,24 @@ class VDContactCell: UITableViewCell {
         case SubtitleCellValue.phoneNumber:
             let phoneNumberCount = contact.phoneNumbers.count
 
-            if phoneNumberCount == 1  {
-                self.contactDetailTextLabel.text = "\(contact.phoneNumbers[0].phoneNumber)"
-            }
-            else if phoneNumberCount > 1 {
-                self.contactDetailTextLabel.text = "\(contact.phoneNumbers[0].phoneNumber) and \(contact.phoneNumbers.count-1) more"
-            }
-            else {
+            if phoneNumberCount >= 1  {
+                var numbers = [String]()
+                for one in contact.phoneNumbers {
+                    numbers.append(one.phoneNumber)
+                }
+                self.contactDetailTextLabel.text = (numbers as NSArray).componentsJoined(by: ",")
+            }else {
                 self.contactDetailTextLabel.text = VDGlobalConstants.shared.phoneNumberNotAvailable
             }
         case SubtitleCellValue.email:
             let emailCount = contact.emails.count
 
             if emailCount == 1  {
-                self.contactDetailTextLabel.text = "\(contact.emails[0].email)"
-            }
-            else if emailCount > 1 {
-                self.contactDetailTextLabel.text = "\(contact.emails[0].email) and \(contact.emails.count-1) more"
+                var numbers = [String]()
+                for one in contact.emails {
+                    numbers.append(one.email)
+                }
+                self.contactDetailTextLabel.text = (numbers as NSArray).componentsJoined(by: ",")
             }
             else {
                 self.contactDetailTextLabel.text = VDGlobalConstants.shared.emailNotAvailable
