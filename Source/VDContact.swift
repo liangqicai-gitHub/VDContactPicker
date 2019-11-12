@@ -70,7 +70,7 @@ open class VDContact {
     }
 
     open var displayName: String {
-        return firstName + " " + lastName
+        return lastName + firstName
     }
 
     open var initials: String {
